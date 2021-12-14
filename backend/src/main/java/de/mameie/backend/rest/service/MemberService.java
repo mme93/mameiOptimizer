@@ -21,14 +21,20 @@ public class MemberService {
     public void save(MemberEntity memberEntity){
         memberRepository.save(memberEntity);
     }
+
     public List<MemberEntity> getEntities(){
         return memberRepository.findAll();
     }
+
     public MemberEntity getEntityByUsername(String username){
         Optional<MemberEntity>memberEntity=memberRepository.findByUsername(username);
         if(memberEntity.isPresent()){
             return memberEntity.get();
         }
         throw new RuntimeException("Not found");
+    }
+
+    public boolean memberEntityExist(MemberEntity memberEntity){
+        return memberRepository.findByUsernameAndEmail(memberEntity.getUsername(),memberEntity.getEmail()).isPresent();
     }
 }

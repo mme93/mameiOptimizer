@@ -1,5 +1,6 @@
 package de.mameie.backend.rest.controller;
 
+import de.mameie.backend.rest.exception.MemberException;
 import de.mameie.backend.rest.model.ModelConverter;
 import de.mameie.backend.rest.model.dto.MemberDto;
 import de.mameie.backend.rest.model.entity.MemberEntity;
@@ -33,6 +34,14 @@ public class MemberController {
 
     @PostMapping("/save")
     public void post(@RequestBody MemberDto memberDto){
+        if(!memberService.memberEntityExist(ModelConverter.memberDtoToMemberEntity().convert(memberDto))){
+            memberService.save(ModelConverter.memberDtoToMemberEntity().convert(memberDto));
+        }else{
+            throw new MemberException("Member allready exist!");
+        }
+    }
+    @PostMapping("/update")
+    public void update(@RequestBody MemberDto memberDto){
         memberService.save(ModelConverter.memberDtoToMemberEntity().convert(memberDto));
     }
 
