@@ -21,11 +21,11 @@ public class CustomerController {
     @PostMapping("/save")
     public void post(@RequestBody CustomerDto customerDto){
         customerDto.setSign(SignGenerator.getSign());
-        customerService.save(ModelConverter.customerDtoToCustomerEntity().convert(customerDto));
+        customerService.save(ModelConverter.customerDtoConvertToEntity().convert(customerDto));
     }
     @GetMapping("/{sign}")
     public CustomerDto get(@PathVariable("sign") String sign){
-        return ModelConverter.customerEntityToCustomerDto().convert(customerService.getCustomer(sign));
+        return ModelConverter.customerEntityConvertToDto().convert(customerService.getCustomer(sign));
     }
 
 

@@ -3,7 +3,6 @@ package de.mameie.backend.rest.controller;
 import de.mameie.backend.rest.exception.MemberException;
 import de.mameie.backend.rest.model.ModelConverter;
 import de.mameie.backend.rest.model.dto.MemberDto;
-import de.mameie.backend.rest.model.entity.MemberEntity;
 import de.mameie.backend.rest.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,25 +23,25 @@ public class MemberController {
 
     @GetMapping("")
     public List<MemberDto>getAll(){
-        return ModelConverter.memberEntityToMemberDtoList().convert(memberService.getEntities());
+        return ModelConverter.memberEntityListConvertToDtoList().convert(memberService.getEntities());
     }
 
     @GetMapping("/{username}")
     public MemberDto getById(@PathVariable("username") String username){
-        return ModelConverter.memberEntityToMemberDto().convert(memberService.getEntityByUsername(username));
+        return ModelConverter.memberEntityConvertToDto().convert(memberService.getEntityByUsername(username));
     }
 
     @PostMapping("/save")
     public void post(@RequestBody MemberDto memberDto){
-        if(!memberService.memberEntityExist(ModelConverter.memberDtoToMemberEntity().convert(memberDto))){
-            memberService.save(ModelConverter.memberDtoToMemberEntity().convert(memberDto));
+        if(!memberService.memberEntityExist(ModelConverter.memberDtoConvertToEntity().convert(memberDto))){
+            memberService.save(ModelConverter.memberDtoConvertToEntity().convert(memberDto));
         }else{
             throw new MemberException("Member allready exist!");
         }
     }
     @PostMapping("/update")
     public void update(@RequestBody MemberDto memberDto){
-        memberService.save(ModelConverter.memberDtoToMemberEntity().convert(memberDto));
+        memberService.save(ModelConverter.memberDtoConvertToEntity().convert(memberDto));
     }
 
 }
