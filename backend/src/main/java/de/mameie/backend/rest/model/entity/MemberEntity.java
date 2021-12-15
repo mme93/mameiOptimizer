@@ -41,4 +41,5 @@ public class MemberEntity {
         this.username = username;
         this.permission = permission;
     }
+
 }
