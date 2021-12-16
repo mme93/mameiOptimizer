@@ -1,11 +1,18 @@
 <ion-app>
+    <ion-menu side="start" menuId="componentMenu" contentId="main-content">
+      <ion-header>
 
-    <ion-menu contentId="main-content">
-      <ion-label>HEllo</ion-label>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button (onclick)="closeMenu()"><ion-icon name="menu-outline"></ion-icon></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
       <ion-content>
         <ion-list *ngFor="let pages of componentArray">
-          <ion-item>
-            <ion-icon slot="start" [ios]="pages.icon + '-outline'" [md]="pages.icon + '-sharp'"></ion-icon>
+          <ion-item button>
+            <ion-icon slot="start" name="accessibility-outline"><ion-button></ion-button></ion-icon>
             <ion-label>{{ pages.name }}</ion-label>
           </ion-item>
         </ion-list>
