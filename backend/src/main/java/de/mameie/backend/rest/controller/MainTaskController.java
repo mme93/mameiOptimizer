@@ -24,7 +24,7 @@ public class MainTaskController {
 
     @GetMapping("")
     public List<MainTaskDto> getAll() {
-        return null;
+        return ModelConverter.mainTaskEntityListToDtoList().convert(mainTaskService.getAll());
     }
 
     @GetMapping("/{title}")

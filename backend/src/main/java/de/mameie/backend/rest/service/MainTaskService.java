@@ -22,7 +22,9 @@ public class MainTaskService {
         this.mainTaskRepository = mainTaskRepository;
         this.taskRepository = taskRepository;
     }
-
+    public List<MainTaskEntity>getAll(){
+        return this.mainTaskRepository.findAll();
+    }
     public MainTaskEntity getMainTaskByTitle(String title) {
         Optional<MainTaskEntity> mainTaskEntity = mainTaskRepository.findByTitle(title);
         if (mainTaskEntity.isPresent()) {

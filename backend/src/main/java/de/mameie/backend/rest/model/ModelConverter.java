@@ -9,6 +9,25 @@ import java.util.List;
 
 public class ModelConverter {
     //Task
+    public static Converter<List<MainTaskDto>, List<MainTaskEntity>> mainTaskDtoListToEntityList(){
+        return mainTaskDtoList -> {
+            List<MainTaskEntity> mainTaskEntityList = new ArrayList<>();
+            for (MainTaskDto mainTaskDto : mainTaskDtoList) {
+                mainTaskEntityList.add(mainTaskDtoConvertToEntity().convert(mainTaskDto));
+            }
+            return mainTaskEntityList;
+        };
+    }
+    public static Converter<List<MainTaskEntity>, List<MainTaskDto>> mainTaskEntityListToDtoList() {
+        return taskEntityList -> {
+            List<MainTaskDto> mainTaskDtoList = new ArrayList<>();
+            for (MainTaskEntity mainTaskEntity : taskEntityList) {
+                mainTaskDtoList.add(mainTaskEntityConvertToDto().convert(mainTaskEntity));
+            }
+            return mainTaskDtoList;
+        };
+    }
+
     public static Converter<MainTaskEntity, MainTaskDto> mainTaskEntityConvertToDto() {
         return mainTaskEntity -> {
             List<TaskDto> taskDtoList = new ArrayList<>();
@@ -25,7 +44,7 @@ public class ModelConverter {
             for (TaskDto taskDto : mainTaskDto.getTaskDtoList()) {
                 taskEntityList.add(new TaskEntity(taskDto.getTask()));
             }
-            return new MainTaskEntity(mainTaskDto.getTitle(),mainTaskDto.getUsername(),taskEntityList);
+            return new MainTaskEntity(mainTaskDto.getTitle(), mainTaskDto.getUsername(), taskEntityList);
         };
     }
 
