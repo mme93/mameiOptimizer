@@ -24,9 +24,18 @@ public class ComponentEntity {
     private String name;
     @Column(name = "description")
     private String description;
+    @Column(name = "href")
+    private String href;
+    @Column(name = "iconName")
+    private String iconName;
+    @Column(name = "permission")
+    private boolean permission;
 
-    public ComponentEntity(String name, String description) {
+    public ComponentEntity(String name, String description, String href, String iconName, boolean permission) {
         this.name = name;
         this.description = description;
+        this.href = href;
+        this.iconName = iconName;
+        this.permission = permission;
     }
 }

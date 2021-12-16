@@ -8,9 +8,5 @@ import {MenuController} from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menu: MenuController) {
-    this.menu.enable(true, 'componentMenu');
-    this.menu.open('componentMenu');
-  }
-
+  constructor(private menu: MenuController) {}
 }

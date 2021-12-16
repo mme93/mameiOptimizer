@@ -9,11 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ComponentDto {
+public class TaskDto {
 
-    private String name;
-    private String description;
-    private String href;
-    private String iconName;
-    private boolean permission;
+    private String task;
+
 }

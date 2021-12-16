@@ -1,24 +1,43 @@
 package de.mameie.backend.rest.model;
 
-import de.mameie.backend.rest.model.dto.ComponentDto;
-import de.mameie.backend.rest.model.dto.CustomerDto;
-import de.mameie.backend.rest.model.dto.MemberDto;
-import de.mameie.backend.rest.model.entity.ComponentEntity;
-import de.mameie.backend.rest.model.entity.CustomerEntity;
-import de.mameie.backend.rest.model.entity.MemberEntity;
+import de.mameie.backend.rest.model.dto.*;
+import de.mameie.backend.rest.model.entity.*;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModelConverter {
+    //Task
+    public static Converter<MainTaskEntity, MainTaskDto> mainTaskEntityConvertToDto() {
+        return mainTaskEntity -> {
+            List<TaskDto> taskDtoList = new ArrayList<>();
+            for (TaskEntity taskEntity : mainTaskEntity.getTaskEntityList()) {
+                taskDtoList.add(new TaskDto(taskEntity.getTask()));
+            }
+            return new MainTaskDto(mainTaskEntity.getTitle(), mainTaskEntity.getUsername(), taskDtoList);
+        };
+    }
+
+    public static Converter<MainTaskDto, MainTaskEntity> mainTaskDtoConvertToEntity() {
+        return mainTaskDto -> {
+            List<TaskEntity> taskEntityList = new ArrayList<>();
+            for (TaskDto taskDto : mainTaskDto.getTaskDtoList()) {
+                taskEntityList.add(new TaskEntity(taskDto.getTask()));
+            }
+            return new MainTaskEntity(mainTaskDto.getTitle(),mainTaskDto.getUsername(),taskEntityList);
+        };
+    }
+
     //Component//
-    public static Converter<ComponentEntity, ComponentDto>componentEntityConvertToDto(){
-        return componentEntity -> new ComponentDto(componentEntity.getName(),componentEntity.getDescription());
+    public static Converter<ComponentEntity, ComponentDto> componentEntityConvertToDto() {
+        return componentEntity -> new ComponentDto(componentEntity.getName(), componentEntity.getDescription(), componentEntity.getHref(), componentEntity.getIconName(), componentEntity.isPermission());
     }
-    public static Converter<ComponentDto,ComponentEntity>componentDtoConvertToEntity(){
-        return componentDto -> new ComponentEntity(componentDto.getName(),componentDto.getDescription());
+
+    public static Converter<ComponentDto, ComponentEntity> componentDtoConvertToEntity() {
+        return componentDto -> new ComponentEntity(componentDto.getName(), componentDto.getDescription(), componentDto.getHref(), componentDto.getIconName(), componentDto.isPermission());
     }
+
     //Customer//
     public static Converter<CustomerEntity, CustomerDto> customerEntityConvertToDto() {
         return customerEntity -> new CustomerDto(customerEntity.getFirstName(), customerEntity.getLastName(), customerEntity.getEmail(), customerEntity.getCompany(), customerEntity.getSign());

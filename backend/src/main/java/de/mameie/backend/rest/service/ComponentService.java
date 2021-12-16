@@ -22,6 +22,10 @@ public class ComponentService {
         this.componentRepository = componentRepository;
     }
 
+    public void save(ComponentEntity componentEntity){
+        componentRepository.save(componentEntity);
+    }
+
     public ComponentDto getComponentByName(String name) {
         Optional<ComponentEntity> componentEntity = componentRepository.findByName(name);
         if (componentEntity.isPresent()) {

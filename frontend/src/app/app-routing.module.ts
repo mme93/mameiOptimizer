@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'customer',
     loadChildren: () => import('./pages/customer/customer.module').then(m => m.CustomerPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'task',
+    loadChildren: () => import('./pages/utils/task/task.module').then(m => m.TaskPageModule)
+  },
+  {
+    path: 'tasktool',
+    loadChildren: () => import('./pages/utils/tasktool/tasktool.module').then( m => m.TasktoolPageModule)
+  },
 ];
 
 @NgModule({

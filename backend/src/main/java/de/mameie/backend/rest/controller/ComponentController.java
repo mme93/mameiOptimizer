@@ -4,10 +4,9 @@ import de.mameie.backend.rest.model.ModelConverter;
 import de.mameie.backend.rest.model.dto.ComponentDto;
 import de.mameie.backend.rest.model.entity.ComponentEntity;
 import de.mameie.backend.rest.repository.ComponentRepository;
+import de.mameie.backend.rest.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +16,11 @@ import java.util.List;
 public class ComponentController {
 
     private final ComponentRepository componentRepository;
-
+    private final ComponentService componentService;
     @Autowired
-    public ComponentController(ComponentRepository componentRepository) {
+    public ComponentController(ComponentRepository componentRepository, ComponentService componentService) {
         this.componentRepository = componentRepository;
+        this.componentService = componentService;
     }
 
     @GetMapping("")
@@ -30,6 +30,10 @@ public class ComponentController {
             componentDtoList.add(ModelConverter.componentEntityConvertToDto().convert(componentEntity));
         }
         return componentDtoList;
+    }
+    @PostMapping("/save")
+    public void save(@RequestBody ComponentDto componentDto){
+        componentService.save(ModelConverter.componentDtoConvertToEntity().convert(componentDto));
     }
 
 }
