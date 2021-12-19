@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Aufgabe erstellen
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button item-end>
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+      <ion-button item-end href="task">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Aufgabe:</ion-label>
+          <ion-input placeholder="Title"></ion-input>
+          <ion-item class="card-list-checkbox-content" lines="none" *ngIf="isShowDays">
+            <ion-label>Mo</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Di</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Mi</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Do</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Fr</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Sa</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>So</ion-label>
+            <ion-checkbox></ion-checkbox>
+            <ion-label>Täglich</ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Time Planer</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="isShowDays"></ion-checkbox>
+          </ion-item>
+        </ion-item>
+       <ion-list>
+         <ion-item >
+           <ion-label position="floating">Beschreibung</ion-label>
+           <ion-textarea></ion-textarea>
+         </ion-item>
+         <ion-item>
+           <ion-label position="floating">Info:</ion-label>
+           <ion-input></ion-input>
+         </ion-item>
+         <ion-item>
+           <ion-row>
+             <ion-col >
+               <ion-button>Test</ion-button>
+             </ion-col>
+             <ion-col>
+               <ion-list>
+                 <ion-item>
+                   <ion-label>Name:</ion-label>
+                   <ion-input></ion-input>
+                   <ion-checkbox></ion-checkbox>
+                 </ion-item>
+               </ion-list>
+             </ion-col>
+           </ion-row>
+         </ion-item>
+
+       </ion-list>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
