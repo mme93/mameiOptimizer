@@ -1,22 +1,31 @@
 <ion-app>
-    <ion-menu side="start" menuId="componentMenu" contentId="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button (onclick)="closeMenu()"><ion-icon name="menu-outline"></ion-icon></ion-menu-button>
-          </ion-buttons>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list *ngFor="let component of componentArray">
-          <ion-item href="{{ component.href }}">
-            <ion-icon slot="start" name={{component.iconName}}><ion-button></ion-button></ion-icon>
-            <ion-label>{{ component.name }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+  <ion-menu side="start" menuId="componentMenu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button (onclick)="closeMenu()">
+            <ion-icon name="menu-outline"></ion-icon>
+          </ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button href="home">
+            <ion-icon name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list *ngFor="let component of componentArray">
+        <ion-item href="{{ component.href }}">
+          <ion-icon slot="start" name={{component.iconName}}>
+            <ion-button></ion-button>
+          </ion-icon>
+          <ion-label>{{ component.name }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 
 </ion-app>
