@@ -66,6 +66,26 @@ public class ModelConverter {
     public static Converter<CustomerDto, CustomerEntity> customerDtoConvertToEntity() {
         return customerDto -> new CustomerEntity(customerDto.isPrivate(), customerDto.getFirstName(), customerDto.getLastName(), customerDto.getEmail(), customerDto.getCompany(), customerDto.getSign(), customerDto.getCallNumber(), customerDto.getInfo(), customerDto.getAddress());
     }
+
+    public static Converter<List<CustomerEntity>, List<CustomerDto>> customerEntityListConvertToDtoList() {
+        return customerEntityList -> {
+            List<CustomerDto> customerDtoList = new ArrayList<>();
+            for (CustomerEntity customerEntity : customerEntityList) {
+                customerDtoList.add(new CustomerDto(customerEntity.isPrivate(), customerEntity.getFirstName(), customerEntity.getLastName(), customerEntity.getAddress(), customerEntity.getCompany(), customerEntity.getSign(), customerEntity.getEmail(), customerEntity.getCallNumber(), customerEntity.getInfo()));
+            }
+            return customerDtoList;
+        };
+    }
+
+    public static Converter<List<CustomerDto>, List<CustomerEntity>> custommerDtoListConvertToEntityList() {
+        return customerDtoList -> {
+            List<CustomerEntity> customerEntityList = new ArrayList<>();
+            for (CustomerDto customerDto : customerDtoList) {
+                customerEntityList.add(new CustomerEntity(customerDto.isPrivate(), customerDto.getFirstName(), customerDto.getLastName(), customerDto.getEmail(), customerDto.getCompany(), customerDto.getSign(), customerDto.getCallNumber(), customerDto.getInfo(), customerDto.getAddress()));
+            }
+            return customerEntityList;
+        };
+    }
     //Member//
 
     public static Converter<MemberDto, MemberEntity> memberDtoConvertToEntity() {

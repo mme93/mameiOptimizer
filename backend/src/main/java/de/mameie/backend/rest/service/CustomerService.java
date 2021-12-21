@@ -17,13 +17,15 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public void save(CustomerEntity customerEntity){
+    public void save(CustomerEntity customerEntity) {
         customerRepository.save(customerEntity);
     }
-    public CustomerEntity getCustomer(String sign){
+
+    public CustomerEntity getCustomer(String sign) {
         return customerRepository.findBySign(sign);
     }
-    public List<CustomerEntity>getAll(){
+
+    public List<CustomerEntity> getAll() {
         return customerRepository.findAll();
     }
 

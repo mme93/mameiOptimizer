@@ -7,6 +7,8 @@ import de.mameie.backend.rest.utils.SignGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -27,7 +29,8 @@ public class CustomerController {
     public CustomerDto get(@PathVariable("sign") String sign){
         return ModelConverter.customerEntityConvertToDto().convert(customerService.getCustomer(sign));
     }
-
-
-
+    @GetMapping("/")
+    public List<CustomerDto> getAll(){
+        return ModelConverter.customerEntityListConvertToDtoList().convert(customerService.getAll());
+    }
 }

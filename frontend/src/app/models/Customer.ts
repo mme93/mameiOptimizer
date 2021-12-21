@@ -1,7 +1,7 @@
 export interface Customer {
-  isPrivate: boolean;
-  firstname: string;
-  lastname: string;
+  private: boolean;
+  firstName: string;
+  lastName: string;
   address: string;
   company: string;
   email: string;

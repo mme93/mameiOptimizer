@@ -9,12 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {ComponentsService} from './services/http/components.service';
 import { HttpClientModule } from '@angular/common/http';
 import {TaskService} from './services/http/task.service';
+import {CustomerService} from './services/http/customer.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ComponentsService,TaskService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ComponentsService,TaskService,CustomerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
