@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerPage implements OnInit {
 
+  isPrivate=false;
+  showNewMember=false;
+  showMember=false;
   constructor() { }
 
   ngOnInit() {
+  }
+  changeMemberView(){
+    this.showNewMember=!this.showNewMember;
   }
 
 }

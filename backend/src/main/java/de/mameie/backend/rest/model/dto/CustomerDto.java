@@ -11,10 +11,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerDto {
-
+    private boolean isPrivate;
     private String firstName;
     private String lastName;
-    private String email;
-    private Boolean company;
+    private String address;
+    private String company;
     private String sign;
+    private String email;
+    private String callNumber;
+    private String info;
 }

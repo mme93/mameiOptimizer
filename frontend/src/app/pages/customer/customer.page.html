@@ -1,38 +1,110 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button><ion-icon name="menu-outline"></ion-icon></ion-menu-button>
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
     </ion-buttons>
     <ion-title>
-     Kundenverwaltung
+      Kundenverwaltung
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
- <ion-card>
-   <ion-row>
-     <ion-col size="8">
-       <ion-card>
-         <ion-card-header>
-           <ion-card-title>Kunden </ion-card-title>
-         </ion-card-header>
-       </ion-card>
-     </ion-col>
-     <ion-col size="4">
-       <ion-card>
-         <ion-card-header>
-           <ion-card-title>Kunden Liste</ion-card-title>
-         </ion-card-header>
-         <ion-card-content>
-           <ion-list>
-             <ion-item>
-               <ion-label>Markus Meier</ion-label>
-               <ion-button><ion-icon name="hammer-outline"></ion-icon></ion-button>
-             </ion-item>
-           </ion-list>
-         </ion-card-content>
-       </ion-card>
-     </ion-col>
-   </ion-row>
- </ion-card>
+  <ion-card class="ion-card-member-content">
+    <ion-row>
+      <ion-col size="8">
+        <ion-card>
+          <ion-card-header>
+            <ion-toolbar>
+              <ion-card-title>Kunden Anlegen</ion-card-title>
+              <ion-buttons slot="end">
+                <ion-button (click) ="changeMemberView()"><ion-icon name="arrow-down-outline"></ion-icon></ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-card-header>
+          <ion-card-content *ngIf="showNewMember">
+            <ion-item>
+              <ion-label>Privat</ion-label>
+              <ion-checkbox [(ngModel)]="isPrivate"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Vorname</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Nachname</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Adresse</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!isPrivate">
+              <ion-label position="floating">Unternehmen</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Telefonnummer</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item >
+              <ion-label position="floating">Info</ion-label>
+              <ion-textarea></ion-textarea>
+            </ion-item>
+          </ion-card-content>
+          <ion-item class="ion-card-item-buttons-content" *ngIf="showNewMember">
+            <ion-buttons>
+              <ion-button>
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+              <ion-button>
+                <ion-icon name="save-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-toolbar>
+              <ion-card-title>Kunden Bearbeiten</ion-card-title>
+              <ion-buttons slot="end">
+                <ion-button><ion-icon name="arrow-down-outline"></ion-icon></ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-card-header>
+          <ion-card-content>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Kunden Liste</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label>Markus Meier</ion-label>
+                <ion-button>
+                  <ion-icon name="hammer-outline"></ion-icon>
+                </ion-button>
+                <ion-button>
+                  <ion-icon name="car-sport-outline"></ion-icon>
+                </ion-button>
+                <ion-button>
+                  <ion-icon name="newspaper-outline"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ModelConverter {
     //Task
-    public static Converter<List<MainTaskDto>, List<MainTaskEntity>> mainTaskDtoListToEntityList(){
+    public static Converter<List<MainTaskDto>, List<MainTaskEntity>> mainTaskDtoListToEntityList() {
         return mainTaskDtoList -> {
             List<MainTaskEntity> mainTaskEntityList = new ArrayList<>();
             for (MainTaskDto mainTaskDto : mainTaskDtoList) {
@@ -18,6 +18,7 @@ public class ModelConverter {
             return mainTaskEntityList;
         };
     }
+
     public static Converter<List<MainTaskEntity>, List<MainTaskDto>> mainTaskEntityListToDtoList() {
         return taskEntityList -> {
             List<MainTaskDto> mainTaskDtoList = new ArrayList<>();
@@ -59,11 +60,11 @@ public class ModelConverter {
 
     //Customer//
     public static Converter<CustomerEntity, CustomerDto> customerEntityConvertToDto() {
-        return customerEntity -> new CustomerDto(customerEntity.getFirstName(), customerEntity.getLastName(), customerEntity.getEmail(), customerEntity.getCompany(), customerEntity.getSign());
+        return customerEntity -> new CustomerDto(customerEntity.isPrivate(), customerEntity.getFirstName(), customerEntity.getLastName(), customerEntity.getAddress(), customerEntity.getCompany(), customerEntity.getSign(), customerEntity.getEmail(), customerEntity.getCallNumber(), customerEntity.getInfo());
     }
 
     public static Converter<CustomerDto, CustomerEntity> customerDtoConvertToEntity() {
-        return customerDto -> new CustomerEntity(customerDto.getFirstName(), customerDto.getLastName(), customerDto.getEmail(), customerDto.getCompany(), customerDto.getSign());
+        return customerDto -> new CustomerEntity(customerDto.isPrivate(), customerDto.getFirstName(), customerDto.getLastName(), customerDto.getEmail(), customerDto.getCompany(), customerDto.getSign(), customerDto.getCallNumber(), customerDto.getInfo(), customerDto.getAddress());
     }
     //Member//
 
