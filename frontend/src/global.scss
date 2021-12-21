@@ -25,14 +25,19 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+.scrollbarX{
+  flex-wrap: nowrap;
+  overflow-y: scroll!important;
+  overflow-x: hidden;
+}
 ion-card{
   ion-card-header{
     ion-card-title{
       text-align: center;
+      color: #FF6600;
     }
   }
   ion-card-content{
-
   }
 }
 ion-button{
