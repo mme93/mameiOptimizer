@@ -29,6 +29,10 @@ public class CustomerController {
 
     }
 
+    @PutMapping("/update")
+    public String update(@RequestBody CustomerDto customerDto){
+        return "sucess";
+    }
     @PostMapping("/save")
     public String post(@RequestBody CustomerDto customerDto) {
         customerDto.setSign(SignGenerator.getSign());

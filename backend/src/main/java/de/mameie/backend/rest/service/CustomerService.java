@@ -1,5 +1,6 @@
 package de.mameie.backend.rest.service;
 
+import de.mameie.backend.rest.model.dto.CustomerDto;
 import de.mameie.backend.rest.model.entity.CustomerEntity;
 import de.mameie.backend.rest.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
