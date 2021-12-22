@@ -60,7 +60,7 @@
           <ion-item class="ion-card-item-buttons-content" *ngIf="showNewMember">
             <ion-buttons>
               <ion-button (click) ="resetNewCustomer()">
-                <ion-icon name="trash-outline" ></ion-icon>
+                <ion-icon name="refresh-outline"></ion-icon>
               </ion-button>
               <ion-button (click) ="saveCustomer()">
                 <ion-icon name="save-outline" ></ion-icon>
@@ -113,11 +113,11 @@
           </ion-card-content>
           <ion-item class="ion-card-item-buttons-content" *ngIf="showMember">
             <ion-buttons>
-              <ion-button>
-                <ion-icon name="trash-outline" (click) ="resetNewCustomer()"></ion-icon>
+              <ion-button (click) ="deleteProcessCustomer()">
+                <ion-icon name="trash-outline" ></ion-icon>
               </ion-button>
-              <ion-button>
-                <ion-icon name="save-outline" (click) ="saveCustomer()"></ion-icon>
+              <ion-button (click) ="saveProcessCustomer()">
+                <ion-icon name="save-outline" ></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-item>

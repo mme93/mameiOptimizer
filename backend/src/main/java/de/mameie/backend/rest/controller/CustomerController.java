@@ -7,6 +7,7 @@ import de.mameie.backend.rest.utils.SignGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -19,23 +20,29 @@ public class CustomerController {
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
+
+    @Transactional
     @DeleteMapping("/delete/{email}")
-    public String delete(@PathVariable("emailo")String email){
-        System.out.println(email);
+    public String delete(@PathVariable("email") String email) {
+        customerService.delete(email);
         return "success";
+
     }
+
     @PostMapping("/save")
-    public String post(@RequestBody CustomerDto customerDto){
+    public String post(@RequestBody CustomerDto customerDto) {
         customerDto.setSign(SignGenerator.getSign());
         customerService.save(ModelConverter.customerDtoConvertToEntity().convert(customerDto));
         return "Sucess";
     }
+
     @GetMapping("/{sign}")
-    public CustomerDto get(@PathVariable("sign") String sign){
+    public CustomerDto get(@PathVariable("sign") String sign) {
         return ModelConverter.customerEntityConvertToDto().convert(customerService.getCustomer(sign));
     }
+
     @GetMapping("/")
-    public List<CustomerDto> getAll(){
+    public List<CustomerDto> getAll() {
         return ModelConverter.customerEntityListConvertToDtoList().convert(customerService.getAll());
     }
 }

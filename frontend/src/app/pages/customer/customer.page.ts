@@ -31,10 +31,16 @@ export class CustomerPage implements OnInit {
   }
   deleteProcessCustomer(){
    this.customerService.deleteCustomer(this.processCustomer.email);
+   this.showMember=false;
+   this.processCustomer=new Customer();
+  }
+  saveProcessCustomer(){
+    this.customerService.saveCustomer(this.processCustomer);
   }
   saveCustomer() {
     this.customerService.saveCustomer(this.newCustomer);
     this.newCustomer = new Customer();
+
   }
   loadCustomerProcess(customer: Customer){
     this.showMember=true;

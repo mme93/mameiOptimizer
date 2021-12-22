@@ -20,7 +20,9 @@ public class CustomerService {
     public void save(CustomerEntity customerEntity) {
         customerRepository.save(customerEntity);
     }
-
+    public void delete(String email){
+        customerRepository.deleteByEmail(email);
+    }
     public CustomerEntity getCustomer(String sign) {
         return customerRepository.findBySign(sign);
     }
