@@ -1,4 +1,4 @@
-export interface Customer {
+export class Customer{
   private: boolean;
   firstName: string;
   lastName: string;

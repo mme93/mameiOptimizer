@@ -19,11 +19,16 @@ public class CustomerController {
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
-
+    @DeleteMapping("/delete/{email}")
+    public String delete(@PathVariable("emailo")String email){
+        System.out.println(email);
+        return "success";
+    }
     @PostMapping("/save")
-    public void post(@RequestBody CustomerDto customerDto){
+    public String post(@RequestBody CustomerDto customerDto){
         customerDto.setSign(SignGenerator.getSign());
         customerService.save(ModelConverter.customerDtoConvertToEntity().convert(customerDto));
+        return "Sucess";
     }
     @GetMapping("/{sign}")
     public CustomerDto get(@PathVariable("sign") String sign){

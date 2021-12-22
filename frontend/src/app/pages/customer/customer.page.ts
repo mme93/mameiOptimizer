@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from "../../models/Customer";
-import {CustomerService} from "../../services/http/customer.service";
+import {Customer} from '../../models/Customer';
+import {CustomerService} from '../../services/http/customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -8,7 +8,6 @@ import {CustomerService} from "../../services/http/customer.service";
   styleUrls: ['./customer.page.scss'],
 })
 export class CustomerPage implements OnInit {
-
   isPrivate = false;
   showNewMember = false;
   showMember = false;
@@ -19,26 +18,23 @@ export class CustomerPage implements OnInit {
   }
 
   ngOnInit() {
+    this.processCustomer = new Customer();
+    this.newCustomer=new Customer();
     this.customerService.getAllCustomer().forEach(value => {
       value.forEach(customer => {
         this.customer.push(customer);
       });
     });
   }
-  clear() {
-    this.newCustomer.firstName = '';
-    this.newCustomer.lastName = '';
-    this.newCustomer.address = '';
-    this.newCustomer.company = '';
-    this.newCustomer.email = '';
-    this.newCustomer.callNumber = '';
-    this.newCustomer.info = '';
-    this.newCustomer.private = false;
+  resetNewCustomer(){
+    this.newCustomer= new Customer();
   }
-
+  deleteProcessCustomer(){
+   this.customerService.deleteCustomer(this.processCustomer.email);
+  }
   saveCustomer() {
     this.customerService.saveCustomer(this.newCustomer);
-    this.clear();
+    this.newCustomer = new Customer();
   }
   loadCustomerProcess(customer: Customer){
     this.showMember=true;

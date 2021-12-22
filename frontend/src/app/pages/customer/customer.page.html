@@ -26,44 +26,44 @@
           <ion-card-content *ngIf="showNewMember">
             <ion-item>
               <ion-label>Privat</ion-label>
-              <ion-checkbox [(ngModel)]="isPrivate"></ion-checkbox>
+              <ion-checkbox [(ngModel)]="newCustomer.private"></ion-checkbox>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Vorname</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.firstName"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Nachname</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.lastName"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Adresse</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.address"></ion-input>
             </ion-item>
-            <ion-item *ngIf="!isPrivate">
+            <ion-item *ngIf="!newCustomer.private">
               <ion-label position="floating">Unternehmen</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.company"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.email"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Telefonnummer</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="newCustomer.callNumber"></ion-input>
             </ion-item>
             <ion-item >
               <ion-label position="floating">Info</ion-label>
-              <ion-textarea></ion-textarea>
+              <ion-textarea [(ngModel)]="newCustomer.info"></ion-textarea>
             </ion-item>
           </ion-card-content>
           <ion-item class="ion-card-item-buttons-content" *ngIf="showNewMember">
             <ion-buttons>
-              <ion-button>
-                <ion-icon name="trash-outline" (click) ="clear()"></ion-icon>
+              <ion-button (click) ="resetNewCustomer()">
+                <ion-icon name="trash-outline" ></ion-icon>
               </ion-button>
-              <ion-button>
-                <ion-icon name="save-outline" (click) ="saveCustomer()"></ion-icon>
+              <ion-button (click) ="saveCustomer()">
+                <ion-icon name="save-outline" ></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-item>
@@ -94,7 +94,7 @@
               <ion-label position="floating">Adresse</ion-label>
               <ion-input [(ngModel)]="processCustomer.address"></ion-input>
             </ion-item>
-            <ion-item *ngIf="!isPrivate">
+            <ion-item *ngIf="!processCustomer.private">
               <ion-label position="floating">Unternehmen</ion-label>
               <ion-input [(ngModel)]="processCustomer.company"></ion-input>
             </ion-item>
@@ -114,7 +114,7 @@
           <ion-item class="ion-card-item-buttons-content" *ngIf="showMember">
             <ion-buttons>
               <ion-button>
-                <ion-icon name="trash-outline" (click) ="clear()"></ion-icon>
+                <ion-icon name="trash-outline" (click) ="resetNewCustomer()"></ion-icon>
               </ion-button>
               <ion-button>
                 <ion-icon name="save-outline" (click) ="saveCustomer()"></ion-icon>
