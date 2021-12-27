@@ -25,7 +25,7 @@ public class CustomerEntity {
     private String firstName;
     @Column(name = "lastName")
     private String lastName;
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;

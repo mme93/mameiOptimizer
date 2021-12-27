@@ -49,7 +49,7 @@ export class CustomerPage implements OnInit {
   }
 
   saveProcessCustomer() {
-    this.customerService.saveCustomer(this.processCustomer);
+    this.customerService.updateCustomer(this.processCustomer);
   }
 
   saveCustomer() {
