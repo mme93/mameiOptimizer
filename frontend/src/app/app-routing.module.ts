@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'customer',
-    loadChildren: () => import('./pages/customer/customer.module').then(m => m.CustomerPageModule)
+    loadChildren: () => import('./pages/person/customer/customer.module').then(m => m.CustomerPageModule)
   },
   {
     path: 'settings',
@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'tasktool',
     loadChildren: () => import('./pages/utils/tasktool/tasktool.module').then( m => m.TasktoolPageModule)
+  },
+  {
+    path: 'customer-settings',
+    loadChildren: () => import('./pages/person/customer-settings/customer-settings.module').then( m => m.CustomerSettingsPageModule)
+  },
+  {
+    path: 'customer-create',
+    loadChildren: () => import('./pages/person/customer-create/customer-create.module').then( m => m.CustomerCreatePageModule)
   },
 ];
 

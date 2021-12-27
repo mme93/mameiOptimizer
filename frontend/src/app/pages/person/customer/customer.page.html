@@ -6,7 +6,7 @@
       </ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Kundenverwaltung
+      Kunden
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -131,6 +131,9 @@
             <ion-card-title>Kunden Liste</ion-card-title>
           </ion-card-header>
           <ion-card-content>
+            <ion-item lines="none">
+              <ion-searchbar placeholder="Kunde Filtern"></ion-searchbar>
+            </ion-item>
             <ion-list *ngFor="let result of customer">
               <ion-item>
                 <ion-label>{{result.firstName}} {{result.lastName}}</ion-label>
