@@ -11,149 +11,28 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <ion-grid>
-    <ion-row>
-      <ion-col size="8">
-        <ion-card>
-          <ion-card-header>
-            <ion-toolbar>
-              <ion-card-title>Kunden Anlegen</ion-card-title>
-              <ion-buttons slot="end">
-                <ion-button (click) ="changeNewMemberView()"><ion-icon name="arrow-down-outline"></ion-icon></ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-card-header>
-          <ion-card-content *ngIf="showNewMember">
-            <ion-item>
-              <ion-label>Privat</ion-label>
-              <ion-checkbox [(ngModel)]="newCustomer.private"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Vorname</ion-label>
-              <ion-input [(ngModel)]="newCustomer.firstName"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Nachname</ion-label>
-              <ion-input [(ngModel)]="newCustomer.lastName"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Adresse</ion-label>
-              <ion-input [(ngModel)]="newCustomer.address"></ion-input>
-            </ion-item>
-            <ion-item *ngIf="!newCustomer.private">
-              <ion-label position="floating">Unternehmen</ion-label>
-              <ion-input [(ngModel)]="newCustomer.company"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input [(ngModel)]="newCustomer.email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Telefonnummer</ion-label>
-              <ion-input [(ngModel)]="newCustomer.callNumber"></ion-input>
-            </ion-item>
-            <ion-item >
-              <ion-label position="floating">Info</ion-label>
-              <ion-textarea [(ngModel)]="newCustomer.info"></ion-textarea>
-            </ion-item>
-          </ion-card-content>
-          <ion-item class="ion-card-item-buttons-content" *ngIf="showNewMember">
-            <ion-buttons>
-              <ion-button (click) ="resetNewCustomer()">
-                <ion-icon name="refresh-outline"></ion-icon>
-              </ion-button>
-              <ion-button (click) ="saveCustomer()">
-                <ion-icon name="save-outline" ></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-        </ion-card>
-        <ion-card>
-          <ion-card-header>
-            <ion-toolbar>
-              <ion-card-title>Kunden Bearbeiten</ion-card-title>
-              <ion-buttons slot="end">
-                <ion-button (click) ="changeMemberView()"><ion-icon name="arrow-down-outline"></ion-icon></ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-card-header>
-          <ion-card-content *ngIf="showMember">
-            <ion-item>
-              <ion-label>Privat</ion-label>
-              <ion-checkbox [(ngModel)]="processCustomer.private"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Vorname</ion-label>
-              <ion-input [(ngModel)]="processCustomer.firstName"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Nachname</ion-label>
-              <ion-input [(ngModel)]="processCustomer.lastName"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Adresse</ion-label>
-              <ion-input [(ngModel)]="processCustomer.address"></ion-input>
-            </ion-item>
-            <ion-item *ngIf="!processCustomer.private">
-              <ion-label position="floating">Unternehmen</ion-label>
-              <ion-input [(ngModel)]="processCustomer.company"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input [(ngModel)]="processCustomer.email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Telefonnummer</ion-label>
-              <ion-input [(ngModel)]="processCustomer.callNumber"></ion-input>
-            </ion-item>
-            <ion-item >
-              <ion-label position="floating">Info</ion-label>
-              <ion-textarea [(ngModel)]="processCustomer.info"></ion-textarea>
-            </ion-item>
-          </ion-card-content>
-          <ion-item class="ion-card-item-buttons-content" *ngIf="showMember">
-            <ion-buttons>
-              <ion-button (click) ="deleteProcessCustomer()">
-                <ion-icon name="trash-outline" ></ion-icon>
-              </ion-button>
-              <ion-button (click) ="saveProcessCustomer()">
-                <ion-icon name="save-outline" ></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-          <ion-card-content>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Kunden Liste</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-item lines="none">
-              <ion-searchbar placeholder="Kunde Filtern"></ion-searchbar>
-            </ion-item>
-            <ion-list *ngFor="let result of customer">
-              <ion-item>
-                <ion-label>{{result.firstName}} {{result.lastName}}</ion-label>
-                <ion-button (click) ="loadCustomerProcess(result)">
-                  <ion-icon name="hammer-outline"></ion-icon>
-                </ion-button>
-                <ion-button>
-                  <ion-icon name="car-sport-outline"></ion-icon>
-                </ion-button>
-                <ion-button >
-                  <ion-icon name="newspaper-outline"></ion-icon>
-                </ion-button>
-                <ion-button >
-                  <ion-icon name="folder-open-outline"></ion-icon>
-                </ion-button>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-card>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-searchbar placeholder="Kunde Filtern"></ion-searchbar>
+        <ion-buttons slot="end">
+          <ion-label slot="end">Kunde</ion-label>
+          <ion-button href="customer-create">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-list *ngFor="let result of customer">
+        <ion-item>
+          <ion-label>{{result.firstName}} {{result.lastName}}</ion-label>
+          <ion-button (click) ="loadCustomer(result)">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button >
+            <ion-icon name="mail-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

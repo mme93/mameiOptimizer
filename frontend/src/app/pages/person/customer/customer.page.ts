@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../../models/Customer';
 import {CustomerService} from '../../../services/http/customer.service';
+import {NavigationExtras, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-customer',
@@ -15,7 +17,7 @@ export class CustomerPage implements OnInit {
   newCustomer: Customer;
   processCustomer: Customer;
 
-  constructor(private customerService: CustomerService) {
+  constructor(private router: Router, private customerService: CustomerService) {
   }
 
   ngOnInit() {
@@ -58,9 +60,13 @@ export class CustomerPage implements OnInit {
     this.customer.push(this.newCustomer);
   }
 
-  loadCustomerProcess(customer: Customer) {
-    this.showMember = true;
-    this.processCustomer = customer;
+  loadCustomer(customer: Customer) {
+    const navigationsExtras: NavigationExtras = {
+      queryParams: {
+        sign: customer.sign
+      }
+    };
+    this.router.navigate(['customer-view'], navigationsExtras);
   }
 
   changeNewMemberView() {

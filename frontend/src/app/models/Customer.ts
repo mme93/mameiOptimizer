@@ -1,4 +1,4 @@
-export class Customer{
+export class Customer {
   private: boolean;
   firstName: string;
   lastName: string;
@@ -7,4 +7,5 @@ export class Customer{
   email: string;
   callNumber: string;
   info: string;
+  sign: string;
 }
