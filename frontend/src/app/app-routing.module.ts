@@ -39,6 +39,18 @@ const routes: Routes = [
     path: 'customer-view',
     loadChildren: () => import('./pages/person/customer-view/customer-view.module').then( m => m.CustomerViewPageModule)
   },
+  {
+    path: 'car-create',
+    loadChildren: () => import('./pages/car/car-create/car-create.module').then( m => m.CarCreatePageModule)
+  },
+  {
+    path: 'car',
+    loadChildren: () => import('./pages/car/car/car.module').then( m => m.CarPageModule)
+  },
+  {
+    path: 'car-view',
+    loadChildren: () => import('./pages/car/car-view/car-view.module').then( m => m.CarViewPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,14 +1,99 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>customer-view</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Kunden Verwaltung
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="customer">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <ion-card-header></ion-card-header>
+    <ion-card-header>
+      <ion-card-title>Kunden Daten</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <ion-label>{{customer.sign}}</ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Privat</ion-label>
+              <ion-checkbox [(ngModel)]="customer.private" [disabled]="readOnlyCustomer"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Vorname</ion-label>
+              <ion-input [(ngModel)]="customer.firstName" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Vorname</ion-label>
+              <ion-input [(ngModel)]="customer.firstName" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Adresse</ion-label>
+              <ion-input [(ngModel)]="customer.address" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item *ngIf="!customer.private">
+              <ion-label position="floating">Unternehmen</ion-label>
+              <ion-input [(ngModel)]="customer.company" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input [(ngModel)]="customer.email" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Telefonnummer</ion-label>
+              <ion-input [(ngModel)]="customer.callNumber" [disabled]="readOnlyCustomer"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Info</ion-label>
+              <ion-textarea [(ngModel)]="customer.info" [disabled]="readOnlyCustomer"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Fahrzeuge</ion-card-title>
+    </ion-card-header>
+    <ion-card-content></ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Unterlagen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content></ion-card-content>
   </ion-card>
 </ion-content>

@@ -10,6 +10,8 @@ import {CustomerService} from '../../../services/http/customer.service';
 })
 export class CustomerViewPage implements OnInit {
 
+  readOnlyCustomer=true;
+
   customer: Customer = new Customer();
 
   constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService) {
