@@ -52,7 +52,9 @@ public class WebDavService implements REST<String> {
     @Override
     public void put(String object) throws IOException {
         if (sardine.exists(WebDavSettings.webDavURL)) {
-
+            sardine.delete(WebDavSettings.webDavURL);
+            InputStream fis = new FileInputStream(new File("C:\\Users\\Markus\\Desktop\\mameiOptimizer\\backend\\src\\main\\java\\de\\mameie\\backend\\webdav\\temp\\dummyFile.txt"));
+            sardine.put(WebDavSettings.webDavURL + "nameOfFile.txt", fis);
         }
     }
 
