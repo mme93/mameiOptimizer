@@ -57,6 +57,6 @@ public class WebDavService implements REST<String> {
     @Override
     public void post(String object) throws IOException {
         InputStream fis = new FileInputStream(new File("C:\\Users\\Markus\\Desktop\\mameiOptimizer\\backend\\src\\main\\java\\de\\mameie\\backend\\webdav\\temp\\dummyFile.txt"));
-        sardine.put(WebDavSettings.webDavURL+"test/nameOfFile.jpg", fis);
+        sardine.put(WebDavSettings.webDavURL+"nameOfFile.txt", fis);
     }
 }
