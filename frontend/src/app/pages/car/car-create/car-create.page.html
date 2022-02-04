@@ -1,9 +1,83 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>car-create</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fahrzeug anlegen
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="car">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>FIN: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Kennzeichen: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Marke: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Modell: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Besitzer: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Getriebe: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Baujahr: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Farbe: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Kraftstoffart: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>TÜV: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fahrzeug-Typ: </ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-card>
+        <ion-title>Bitte Daten zum hochladen auswählen</ion-title>
+        <ion-item>
+          <ion-label>Pfad: </ion-label>
+          <ion-input></ion-input>
+          <ion-button>Laden</ion-button>
+          <ion-button>Suchen</ion-button>
+        </ion-item>
+      </ion-card>
+      <ion-item>
+        <ion-button>Speichern</ion-button>
+        <ion-button>Löschen</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

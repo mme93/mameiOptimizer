@@ -11,5 +11,7 @@ export class CarPage implements OnInit {
 
   ngOnInit() {
   }
-
+  loadCar(){
+    return null;
+  }
 }

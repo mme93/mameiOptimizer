@@ -16,5 +16,8 @@ public class CarDto {
     private String gear;
     private int yearOfConstruction;
     private String color;
+    private String fuel;
+    private String tuev;
+    private String carType;
 
 }

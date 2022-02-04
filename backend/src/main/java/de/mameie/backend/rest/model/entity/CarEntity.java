@@ -35,8 +35,14 @@ public class CarEntity {
     private int yearOfConstruction;
     @Column(name = "color")
     private String color;
+    @Column(name = "fuel")
+    private String fuel;
+    @Column(name = "tuev")
+    private String tuev;
+    @Column(name = "car_type")
+    private String carType;
 
-    public CarEntity(String fin, String licensePlate, String brand, String model, String owner, String gear, int yearOfConstruction, String color) {
+    public CarEntity(String fin, String licensePlate, String brand, String model, String owner, String gear, int yearOfConstruction, String color,String fuel,String tuev,String carType) {
         this.fin = fin;
         this.licensePlate = licensePlate;
         this.brand = brand;
@@ -45,5 +51,8 @@ public class CarEntity {
         this.gear = gear;
         this.yearOfConstruction = yearOfConstruction;
         this.color = color;
+        this.fuel=fuel;
+        this.tuev=tuev;
+        this.carType=carType;
     }
 }
