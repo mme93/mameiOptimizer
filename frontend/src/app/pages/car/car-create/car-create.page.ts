@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Car} from '../../../models/Car';
 
 @Component({
   selector: 'app-car-create',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarCreatePage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  car: Car;
+  constructor() {
   }
 
+
+  ngOnInit() {
+    this.car = new Car();
+  }
+
+  saveCar() {
+    return null;
+  }
+
+  saveFile() {
+    return null;
+  }
+
+  openFileLoader() {
+    return null;
+  }
+
+  refreshCar() {
+    return null;
+  }
 }

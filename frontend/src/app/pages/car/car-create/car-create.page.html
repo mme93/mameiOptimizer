@@ -19,65 +19,78 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
+      <ion-item>
+        <ion-button (click)="saveCar()" slot="end">
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="refreshCar()" slot="end">
+          <ion-icon name="refresh-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
       <ion-list>
         <ion-item>
-          <ion-label>FIN: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>FIN:</ion-label>
+          <ion-input [(ngModel)]="car.fin"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Kennzeichen: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Kennzeichen:</ion-label>
+          <ion-input [(ngModel)]="car.licensePlate"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Marke: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Marke:</ion-label>
+          <ion-input [(ngModel)]="car.brand"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Modell: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Modell:</ion-label>
+          <ion-input [(ngModel)]="car.model"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Besitzer: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Besitzer:</ion-label>
+          <ion-input [(ngModel)]="car.owner"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Getriebe: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Getriebe:</ion-label>
+          <ion-input [(ngModel)]="car.gear"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Baujahr: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Baujahr:</ion-label>
+          <ion-input [(ngModel)]="car.yearOfConstruction"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Farbe: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Farbe:</ion-label>
+          <ion-input [(ngModel)]="car.color"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Kraftstoffart: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Kraftstoffart:</ion-label>
+          <ion-input [(ngModel)]="car.fuel"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>TÜV: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>TÜV:</ion-label>
+          <ion-input [(ngModel)]="car.tuev"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Fahrzeug-Typ: </ion-label>
-          <ion-input></ion-input>
+          <ion-label>Fahrzeug-Typ:</ion-label>
+          <ion-select>
+            <ion-select-option></ion-select-option>
+          </ion-select>
+          <ion-input [(ngModel)]="car.carType"></ion-input>
         </ion-item>
       </ion-list>
       <ion-card>
         <ion-title>Bitte Daten zum hochladen auswählen</ion-title>
         <ion-item>
-          <ion-label>Pfad: </ion-label>
+          <ion-label>Pfad:</ion-label>
           <ion-input></ion-input>
-          <ion-button>Laden</ion-button>
-          <ion-button>Suchen</ion-button>
+          <ion-item>
+            <ion-button (click)="saveFile()">
+              <ion-icon name="save-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="openFileLoader()">
+              <ion-icon name="folder-open-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
         </ion-item>
       </ion-card>
-      <ion-item>
-        <ion-button>Speichern</ion-button>
-        <ion-button>Löschen</ion-button>
-      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
