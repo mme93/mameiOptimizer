@@ -2,10 +2,12 @@ package de.mameie.backend.rest.controller;
 
 
 import de.mameie.backend.rest.model.dto.BrandDto;
+import de.mameie.backend.rest.model.dto.CarDto;
 import de.mameie.backend.rest.model.dto.CarTypeDto;
 import de.mameie.backend.rest.model.entity.BrandEntity;
 import de.mameie.backend.rest.model.entity.CarTypeEntity;
 import de.mameie.backend.rest.service.BrandService;
+import de.mameie.backend.rest.service.CarService;
 import de.mameie.backend.rest.service.CarTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +22,26 @@ public class CarController {
 
     private final BrandService brandService;
     private final CarTypeService carTypeService;
+    private final CarService carService;
 
     @Autowired
-    public CarController(BrandService brandService, CarTypeService carTypeService) {
+    public CarController(BrandService brandService, CarTypeService carTypeService, CarService carService) {
         this.brandService = brandService;
         this.carTypeService = carTypeService;
+        this.carService = carService;
     }
 
+    @PostMapping(value = "/save")
+    public void saveCar(@RequestBody CarDto carDto) throws IOException {
+        this.carService.post(this.carService.convertDtoToEntity(carDto));
+    }
+
+    @GetMapping(value = "/")
+    public List<CarDto> getAllCars() throws IOException {
+        List<CarDto> carDtos = new ArrayList<>();
+        this.carService.getAll().forEach(carEntity -> carDtos.add(this.carService.convertEntityToDto(carEntity)));
+        return carDtos;
+    }
 
     @PostMapping(value = "/brand/{name}")
     public void saveBrand(@PathVariable("name") String brandName) throws IOException {
@@ -41,6 +56,7 @@ public class CarController {
         });
         return brandDtos;
     }
+
     @PostMapping(value = "/carType/{type}")
     public void saveCarType(@PathVariable("type") String type) throws IOException {
         carTypeService.post(new CarTypeEntity(type));

@@ -51,6 +51,12 @@ const routes: Routes = [
     path: 'car-view',
     loadChildren: () => import('./pages/car/car-view/car-view.module').then( m => m.CarViewPageModule)
   },
+  {
+    path: '**',
+    // eslint-disable-next-line max-len
+    loadChildren: () => import('./pages/error/pagenotfoundcomponent/pagenotfoundcomponent.module').then( m => m.PagenotfoundcomponentPageModule)
+  },
+
 ];
 
 @NgModule({

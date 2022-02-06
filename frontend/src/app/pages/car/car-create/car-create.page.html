@@ -87,10 +87,10 @@
         <ion-title>Bitte Daten zum hochladen auswählen</ion-title>
         <ion-item>
           <ion-label>Pfad:</ion-label>
-          <ion-input  [(ngModel)]="path"></ion-input>
+          <ion-input  [(ngModel)]="path" class="ion-text-right"></ion-input>
           <ion-item>
-            <ion-button (click)="saveFile()">
-              <ion-icon name="save-outline"></ion-icon>
+            <ion-button (click)="uploadFile()">
+              <ion-icon name="cloud-upload-outline"></ion-icon>
             </ion-button>
           </ion-item>
         </ion-item>

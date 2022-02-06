@@ -4,6 +4,8 @@ import {CarService} from '../../../services/http/car.service';
 import {CarType} from '../../../models/CarType';
 import {Brand} from '../../../models/Brand';
 import {Customer} from '../../../models/Customer';
+import {FileService} from '../../../services/util/file.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-car-create',
@@ -19,7 +21,7 @@ export class CarCreatePage implements OnInit {
   gears: string[] = [];
   customers: Customer[] = [];
 
-  constructor(private carService: CarService) {
+  constructor(private carService: CarService, private fileService: FileService, private router: Router) {
   }
 
 
@@ -31,14 +33,19 @@ export class CarCreatePage implements OnInit {
 
   saveCar() {
     this.carService.saveCar(this.car);
+    this.router.navigate(['car']);
   }
 
-  saveFile() {
+  uploadFile() {
     if (this.path.length === 0 || this.path == null) {
       alert('Bitte Pfad eingeben');
       return;
     }
-    return null;
+    if (!this.fileService.fileExist(this.path)) {
+
+    } else {
+      alert('Datei existiert nicht');
+    }
   }
 
 
@@ -68,6 +75,6 @@ export class CarCreatePage implements OnInit {
 
     this.gears.push('Schaltgetriebe');
     this.gears.push('Automatikgetriebe');
-    this.path='';
+    this.path = '';
   }
 }

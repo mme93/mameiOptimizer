@@ -25,8 +25,21 @@ export class CarService {
   getAllCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>('http://localhost:8093/customer/');
   }
-
+  getAllCars(): Observable<Car[]> {
+    return this.http.get<Car[]>('http://localhost:8093/customer/');
+  }
   saveCar(car: Car) {
-    //this.http.post('http://localhost:8093/')
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    this.http.post('http://localhost:8093/car/save', JSON.stringify(car), httpOptions).subscribe(
+      response => {
+        console.log(response);
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 }
