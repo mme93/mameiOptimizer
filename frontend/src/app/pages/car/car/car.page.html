@@ -22,10 +22,12 @@
       </ion-button>
     </ion-buttons>
   </ion-item>
-  <ion-list>
+  <ion-list *ngFor="let car of cars">
     <ion-item>
-      <ion-label>Porsche</ion-label>
-      <ion-button (click) ="loadCar()">
+      <ion-label>KZ: {{car.licensePlate}}</ion-label>
+      <ion-label>Halter: {{car.owner}}</ion-label>
+      <ion-label>FIN: {{car.fin}}</ion-label>
+      <ion-button (click) ="loadCar(car)">
         <ion-icon name="car-sport-outline"></ion-icon>
       </ion-button>
       <ion-button >

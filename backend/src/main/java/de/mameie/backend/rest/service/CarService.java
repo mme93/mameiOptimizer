@@ -30,6 +30,9 @@ public class CarService implements REST<CarEntity> {
         return null;
     }
 
+    public CarEntity get(String licensePlate) throws IOException {
+        return this.carRepository.findByLicensePlate(licensePlate);
+    }
     @Override
     public List<CarEntity> getAll() throws IOException {
         return this.carRepository.findAll();

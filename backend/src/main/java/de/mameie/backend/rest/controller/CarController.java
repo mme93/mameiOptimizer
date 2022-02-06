@@ -35,7 +35,11 @@ public class CarController {
     public void saveCar(@RequestBody CarDto carDto) throws IOException {
         this.carService.post(this.carService.convertDtoToEntity(carDto));
     }
-
+    @GetMapping(value = "/licensePlate/{licensePlate}")
+    public CarDto getCar(@PathVariable("licensePlate") String licensePlate) throws IOException {
+        System.err.println(licensePlate);
+        return this.carService.convertEntityToDto(this.carService.get(licensePlate));
+    }
     @GetMapping(value = "/")
     public List<CarDto> getAllCars() throws IOException {
         List<CarDto> carDtos = new ArrayList<>();
