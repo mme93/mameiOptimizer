@@ -67,7 +67,11 @@ const routes: Routes = [
     path: '**',
     // eslint-disable-next-line max-len
     loadChildren: () => import('./pages/error/pagenotfoundcomponent/pagenotfoundcomponent.module').then(m => m.PagenotfoundcomponentPageModule)
+  },  {
+    path: 'calendar-view',
+    loadChildren: () => import('./pages/calendar/calendar-view/calendar-view.module').then( m => m.CalendarViewPageModule)
   },
+
 ];
 
 @NgModule({

@@ -10,7 +10,4 @@ export class HomePage {
 
   constructor(private menu: MenuController) {}
 
-  test(){
-    alert(localStorage.getItem('menuBar'));
-  }
 }
