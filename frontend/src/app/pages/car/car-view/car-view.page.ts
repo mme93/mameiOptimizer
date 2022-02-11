@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {CarService} from '../../../services/http/car.service';
+import {Car} from '../../../models/Car';
 
 @Component({
   selector: 'app-car-view',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarViewPage implements OnInit {
 
-  constructor() { }
+  car: Car= new Car();
+  constructor(private route: ActivatedRoute,private carService: CarService) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.carService.getCar(params.KZ).subscribe(car =>{
+        this.car=car;
+      });
+    });
   }
 
 }

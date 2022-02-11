@@ -38,6 +38,14 @@ ion-card{
     }
   }
   ion-card-content{
+    ion-card{
+      ion-title{
+        text-align: center;
+        color: #FF6600;
+      }
+      background-color: #696969;
+      padding: 4px;
+    }
   }
 }
 ion-button{

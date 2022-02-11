@@ -1,9 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>car-view</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fahrzeug Ansicht
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="car">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon name="hammer-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>KZ: {{car.licensePlate}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>FIN: {{car.fin}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Marke: {{car.brand}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Modell: {{car.model}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Eigentümer: {{car.owner}}</ion-label>
+      </ion-item><ion-item>
+      <ion-label>Besitzer: {{car.gear}}</ion-label>
+    </ion-item>
+      <ion-item>
+        <ion-label>Baujahr: {{car.yearOfConstruction}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Farbe: {{car.color}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Antrieb: {{car.fuel}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>TÜV: {{car.tuev}}</ion-label>
+      </ion-item><ion-item>
+      <ion-label>Fahrzeugtype: {{car.carType}}</ion-label>
+    </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

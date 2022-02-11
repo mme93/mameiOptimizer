@@ -9,4 +9,5 @@ import {MenuController} from '@ionic/angular';
 export class HomePage {
 
   constructor(private menu: MenuController) {}
+
 }

@@ -1,9 +1,100 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>car-create</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fahrzeug anlegen
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="car">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-button (click)="saveCar()" slot="end">
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="refreshCar()" slot="end">
+          <ion-icon name="refresh-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label>FIN:</ion-label>
+          <ion-input [(ngModel)]="car.fin" placeholder="W0L-000051T-2123456" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Kennzeichen:</ion-label>
+          <ion-input [(ngModel)]="car.licensePlate" placeholder="MH-XX-3" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Marke:</ion-label>
+          <ion-select [(ngModel)]="car.brand">
+            <ion-select-option *ngFor="let brand of brands">{{brand.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Modell:</ion-label>
+          <ion-input [(ngModel)]="car.model" placeholder="3er" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Besitzer:</ion-label>
+          <ion-select [(ngModel)]="car.owner">
+            <ion-select-option *ngFor="let customer of customers">{{customer.firstName}} {{customer.lastName}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Getriebe:</ion-label>
+          <ion-select [(ngModel)]="car.gear">
+            <ion-select-option *ngFor="let gear of gears">{{gear}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Baujahr:</ion-label>
+          <ion-input [(ngModel)]="car.yearOfConstruction" placeholder="2022" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Farbe:</ion-label>
+          <ion-input [(ngModel)]="car.color" placeholder="rot" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Kraftstoffart:</ion-label>
+          <ion-select [(ngModel)]="car.fuel">
+            <ion-select-option *ngFor="let fuel of fuels">{{fuel}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>TÜV:</ion-label>
+          <ion-input [(ngModel)]="car.tuev" placeholder="01.01.2022" class="ion-text-right"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fahrzeug-Typ:</ion-label>
+          <ion-select [(ngModel)]="car.carType">
+            <ion-select-option *ngFor="let carType of carTypes">{{carType.type}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-card>
+        <ion-title>Bitte Daten zum hochladen auswählen</ion-title>
+        <ion-item>
+          <ion-label>Pfad:</ion-label>
+          <ion-input  [(ngModel)]="path" class="ion-text-right"></ion-input>
+          <ion-item>
+            <ion-button (click)="uploadFile()">
+              <ion-icon name="cloud-upload-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-item>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
