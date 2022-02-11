@@ -21,24 +21,27 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(!this.isLoadMenuBar()){
+    if (!this.isLoadMenuBar()) {
       this.componentService.getAllComponents().forEach(components => {
         components.forEach(component => {
           this.componentArray.push(component);
         });
         this.setMenubar();
       });
-    }else{
-    this.initMenubar();
+    } else {
+      this.initMenubar();
     }
   }
-  initMenubar(){
-    this.componentArray= JSON.parse(localStorage.getItem('menuBar'));
+
+  initMenubar() {
+    this.componentArray = JSON.parse(localStorage.getItem('menuBar'));
   }
-  setMenubar(){
-    localStorage.setItem('menuBar',JSON.stringify(this.componentArray));
+
+  setMenubar() {
+    localStorage.setItem('menuBar', JSON.stringify(this.componentArray));
   }
-  isLoadMenuBar(){
+
+  isLoadMenuBar() {
     return (!(localStorage.getItem('menuBar') === null));
   }
 }

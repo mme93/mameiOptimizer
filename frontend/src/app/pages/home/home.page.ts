@@ -9,4 +9,8 @@ import {MenuController} from '@ionic/angular';
 export class HomePage {
 
   constructor(private menu: MenuController) {}
+
+  test(){
+    alert(localStorage.getItem('menuBar'));
+  }
 }
