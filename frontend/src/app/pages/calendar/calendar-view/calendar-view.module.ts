@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CalendarViewPageRoutingModule } from './calendar-view-routing.module';
 
 import { CalendarViewPage } from './calendar-view.page';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CalendarViewPageRoutingModule
+    CalendarViewPageRoutingModule,
+    NgCalendarModule
+
   ],
   declarations: [CalendarViewPage]
 })
