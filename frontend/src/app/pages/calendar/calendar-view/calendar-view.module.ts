@@ -8,7 +8,7 @@ import { CalendarViewPageRoutingModule } from './calendar-view-routing.module';
 
 import { CalendarViewPage } from './calendar-view.page';
 import { NgCalendarModule } from 'ionic2-calendar';
-import {CalenderEventComponent} from '../calender-event/calender-event.component';
+import {CalenderEventComponent} from './calender-event/calender-event.component';
 
 @NgModule({
   imports: [

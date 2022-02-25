@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar';
 import {ModalController} from '@ionic/angular';
-import {CalenderEventComponent} from '../calender-event/calender-event.component';
+import {CalenderEventComponent} from './calender-event/calender-event.component';
 
 
 @Component({
