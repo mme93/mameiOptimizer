@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar';
+import {ModalController} from '@ionic/angular';
+import {CalenderEventComponent} from '../calender-event/calender-event.component';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class CalendarViewPage implements OnInit {
 
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor() {
+  constructor(private modalController: ModalController) {
   }
 
   ngOnInit() {
@@ -33,7 +35,11 @@ export class CalendarViewPage implements OnInit {
   today() {
     this.calendar.currentDate = new Date();
   }
-  createNewEvent() {
-
+  async createNewEvent() {
+    //https://edupala.com/ionic-modal-controller-exmple/
+    const modal= await this.modalController.create({
+      component: CalenderEventComponent
+    });
+    modal.present();
   }
 }
